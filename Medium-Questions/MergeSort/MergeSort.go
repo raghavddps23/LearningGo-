@@ -47,18 +47,19 @@ func mergeHalves(arr []int, start int, middle int, end int) {
 
 	}
 	//copy remainder if exists
-	for i < lSize {
-		arr[k] = left[i]
-		i++
-		k++
-	}
-	//copy remainder if exists
 
-	for j < lSize {
+	for j < rSize {
 		arr[k] = right[j]
 		j++
 		k++
 	}
+	//copy remainder if exists
+	// for i < lSize {
+	// 	arr[k] = left[i]
+	// 	i++
+	// 	k++
+	// }
+
 	fmt.Print(arr)
 	fmt.Print("\n")
 }
