@@ -7,8 +7,9 @@ import (
 func main() {
 
 	fmt.Print("Here we go. Merge sort\n")
-	array := []int{2, 7, 11, 13, 3, 19, 5, 17, 88}
-	mergeHalves(array, 0, 4, 9)
+	array := []int{19, 11, 2, 7, 13, 3, 5, 17, 88, 12}
+	MergeSort(array, 0, len(array)-1)
+	fmt.Print(array)
 }
 
 func MergeSort(arr []int, start int, end int) {
@@ -35,7 +36,7 @@ func mergeHalves(arr []int, start int, middle int, end int) {
 
 	//index for both arrays and output array
 	var i, j, k = 0, 0, 0
-	for i < lSize && j < rSize {
+	for j < len(right) && i < len(left) {
 		if left[i] <= right[j] {
 			arr[k] = left[i]
 			i++
@@ -44,21 +45,18 @@ func mergeHalves(arr []int, start int, middle int, end int) {
 			j++
 		}
 		k++
-
 	}
+
 	//copy remainder if exists
-	for i < lSize {
+	for i < len(left) {
 		arr[k] = left[i]
 		i++
 		k++
 	}
 
-	for j < rSize {
+	for j < len(right) {
 		arr[k] = right[j]
 		j++
 		k++
 	}
-
-	fmt.Print(arr)
-	fmt.Print("\n")
 }
