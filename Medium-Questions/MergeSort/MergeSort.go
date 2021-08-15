@@ -7,9 +7,10 @@ import (
 func main() {
 
 	fmt.Print("Here we go. Merge sort\n")
-	array := []int{19, 11, 2, 7, 13, 3, 5, 17, 88, 12}
+	array := []int{1, 9, 118, 51, 11, 100, 12, 2}
 	MergeSort(array, 0, len(array)-1)
-	fmt.Print(array)
+	fmt.Print("Final = ", array)
+
 }
 
 func MergeSort(arr []int, start int, end int) {
@@ -20,28 +21,34 @@ func MergeSort(arr []int, start int, end int) {
 
 	MergeSort(arr, start, middle)
 	MergeSort(arr, middle+1, end)
-	//merge diff ones
 	mergeHalves(arr, start, middle, end)
-
 }
 
 func mergeHalves(arr []int, start int, middle int, end int) {
-	//create temporary arrays for both Halves
+	//create temporary variables for both Halves
 	lSize := middle - start + 1
 	rSize := end - middle
 
-	//copy elements
-	left := arr[start:(start + lSize)]
-	right := arr[(middle + 1):(middle + rSize)]
+	//copy elements into temporary halves
+
+	left := make([]int, lSize)
+	right := make([]int, rSize)
+
+	for index, value := range arr[start:(start + lSize)] {
+		left[index] = value
+	}
+	for index, value := range arr[(middle + 1):(middle + rSize + 1)] {
+		right[index] = value
+	}
 
 	//index for both arrays and output array
 	var i, j, k = 0, 0, 0
 	for j < len(right) && i < len(left) {
 		if left[i] <= right[j] {
-			arr[k] = left[i]
+			arr[start+k] = left[i]
 			i++
 		} else {
-			arr[k] = right[j]
+			arr[start+k] = right[j]
 			j++
 		}
 		k++
@@ -49,14 +56,15 @@ func mergeHalves(arr []int, start int, middle int, end int) {
 
 	//copy remainder if exists
 	for i < len(left) {
-		arr[k] = left[i]
+		arr[start+k] = left[i]
 		i++
 		k++
 	}
 
 	for j < len(right) {
-		arr[k] = right[j]
+		arr[start+k] = right[j]
 		j++
 		k++
 	}
+
 }
