@@ -1,16 +1,16 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 
-	fmt.Print("Here we go. Merge sort\n")
 	array := []int{1, 9, 118, 51, 11, 100, 12, 2}
 	MergeSort(array, 0, len(array)-1)
 	fmt.Print("Final = ", array)
 
+	array = []int{1, 9}
+	MergeSort(array, 0, len(array)-1)
+	fmt.Print("Final = ", array)
 }
 
 func MergeSort(arr []int, start int, end int) {
