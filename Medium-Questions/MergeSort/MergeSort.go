@@ -3,14 +3,32 @@ package main
 import "fmt"
 
 func main() {
+	var array []int
 
-	array := []int{1, 9, 118, 51, 11, 100, 12, 2}
+	array = []int{1, 9, 118, 51, 11, 100, 12, 2}
+	fmt.Println("Input = ", array)
 	MergeSort(array, 0, len(array)-1)
-	fmt.Print("Final = ", array)
+	fmt.Println("Output = ", array)
 
-	array = []int{1, 9}
+	array = []int{5, 1, 9}
+	fmt.Println("Input = ", array)
 	MergeSort(array, 0, len(array)-1)
-	fmt.Print("Final = ", array)
+	fmt.Println("Output = ", array)
+
+	array = []int{1, 19, -1, 82, 1, 0}
+	fmt.Println("Input = ", array)
+	MergeSort(array, 0, len(array)-1)
+	fmt.Println("Output = ", array)
+
+	array = []int{98, 4, 6, 21, 1, 9}
+	fmt.Println("Input = ", array)
+	MergeSort(array, 0, len(array)-1)
+	fmt.Println("Output = ", array)
+
+	array = []int{9}
+	fmt.Println("Input = ", array)
+	MergeSort(array, 0, len(array)-1)
+	fmt.Println("Output = ", array)
 }
 
 func MergeSort(arr []int, start int, end int) {
